@@ -16,21 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-""" from soldados.views import detallePersona, nuevaPersona, editarPersona, eliminarPersona, detalleDomicilio, \
-    nuevoDomicilio, editarDomicilio, eliminarDomicilio """
-from webapp.views import home, listaDomicilios
+from soldados.views import (nuevoSoldado, gestionarSoldado, editarSoldado, rediGestionar, 
+historialSoldado, nuevasIncorporaciones, frenteBatalla, heridos, caidos)
+from webapp.views import home
 
 urlpatterns = (
     path('admin/', admin.site.urls),
     path('', home, name='inicio'),
+    path('nuevo_soldado', nuevoSoldado, name='nuevoSoldado'),
+    path('gestionar_soldados', gestionarSoldado, name='gestionarSoldado'),
+    path('editar/<int:id>', editarSoldado, name='editarSoldado'),
+    path('editar/gestionar_soldados', rediGestionar, name='rediGestionar'),
+    path('historial/<int:id>', historialSoldado, name='historialSoldado'),
+    path('historial/gestionar_soldados', rediGestionar, name='rediGestionar'),
+    path('nuevas_incorporaciones', nuevasIncorporaciones, name='nuevasIncorporaciones'),
+    path('frente_batalla', frenteBatalla, name='frenteBatalla'),
+    path('heridos', heridos, name='heridos'),
+    path('caidos', caidos, name='caidos'),
 )
-
-"""     path('detalle_persona/<int:id>', detallePersona),
-    path('nueva_persona', nuevaPersona),
-    path('editar_persona/<int:id>', editarPersona),
-    path('eliminar_persona/<int:id>', eliminarPersona),
-    path('lista_domicilios', listaDomicilios, name='domicilios'),
-    path('detalle_domicilio/<int:id>', detalleDomicilio),
-    path('nuevo_domicilio', nuevoDomicilio),
-    path('editar_domicilio/<int:id>', editarDomicilio),
-    path('eliminar_domicilio/<int:id>', eliminarDomicilio), """

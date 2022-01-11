@@ -1,0 +1,30 @@
+{% extends 'basehome.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+  <h2 class="text-center ">NUEVAS INCORPORACIONES</h2>
+  <table class="table mt-5">
+    <thead class="table-dark">
+      <tr class="text-center">
+        <th>ID</th>
+        <th>SOLDADO</th>
+        <th>ESTADO</th>
+        <th>ARMA</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for soldado in soldados %}
+            <tr class="text-center">
+                <td>{{ soldado.id }}</td>
+                <td>{{ soldado.apodo }}</td>
+                <td>{{ soldado.estado | capfirst}}</td>
+                <td>{{ soldado.arma.nombre | capfirst }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}
+

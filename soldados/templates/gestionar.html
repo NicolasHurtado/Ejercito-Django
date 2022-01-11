@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+  <h2 class="text-center ">Lista de Soldados</h2>
+  <table class="table mt-5">
+    <thead class="table-dark">
+      <tr class="text-center">
+        <th>ID</th>
+        <th>SOLDADO</th>
+        <th>ESTADO</th>
+        <th>ARMA</th>
+        <th>OPCIÓN 1</th>
+        <th>OPCIÓN 2</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for soldado in soldados %}
+            <tr class="text-center">
+                
+                <td>{{ soldado.id }}</td>
+                <td>{{ soldado.apodo }}</td>
+                <td>{{ soldado.estado | capfirst}}</td>
+                <td>{{ soldado.arma.nombre | capfirst }}</td>
+                {% if soldado.estado != "caido" %}
+                    <td><a class=" bg-dark btn btn-primary" href="editar/{{soldado.id}}">Editar</a></td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+                <td><a class=" bg-dark btn btn-primary" href="historial/{{soldado.id}}">Historial Armas</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}
+

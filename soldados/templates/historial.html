@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h2 class="text-center ">Historial Soldado</h2>
+    <table class="table mt-5">
+      <thead class="table-dark">
+        <tr class="text-center">
+          <th>SOLDADO</th>
+          <th>ARMA</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for item in historial %}
+              <tr class="text-center">
+                  <td>{{ item.soldado.apodo }}</td>
+                  <td>{{ item.arma.nombre | capfirst }}</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}
+

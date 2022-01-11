@@ -1,0 +1,23 @@
+{% extends 'basehome.html' %}
+{% load static %}
+
+{% block content %}
+<section class="section-name padding-y-sm">
+    <div class="container  ">
+        <div class="section-heading pt-3 pb-3">
+            <h3 class="text-center m-4"> Legendario ejercito del reino de python</h3>
+        </div><!-- sect-heading -->
+        <div class="d-grid gap-4 col-2 mx-auto">
+            <a href="nuevo_soldado" class="btn btn-primary">Nuevo Soldado</a>
+            <a href="gestionar_soldados" class="btn btn-primary">Gestionar Soldados</a>
+            <h5 class="text-center"> Listar soldados</h5>
+            <a href="nuevas_incorporaciones" class="btn btn-primary">Nuevas Incorporaciones</a>
+            <a href="frente_batalla" class="btn btn-primary">Frente de Batalla</a>
+            <a href="heridos"class="btn btn-primary">Heridos</a>
+            <a href="caidos" class="btn btn-primary btn-block">Caidos</a>
+        </div>
+        </div> <!-- row.// -->
+    </div> <!-- container.// -->
+</section>
+{% endblock content %}
+

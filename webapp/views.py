@@ -1,8 +1,8 @@
 from django.shortcuts import render
+from soldados.models import Arma
 
 # Create your views here.
 def home(request):
-    return render(request,'base.html')
+    return render(request,'home.html')
 
-def listaDomicilios(request):
-    return render(request,'domicilios.html')
+
