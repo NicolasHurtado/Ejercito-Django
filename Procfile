@@ -1,0 +1,1 @@
+web: gunicorn ejercito.wsgi --log-file -
