@@ -92,74 +92,29 @@ def historialSoldado(request, id):
     return render(request, 'historial.html', context)
 
 def nuevasIncorporaciones(request):
-    soldados = Soldado.objects.filter(estado="nuevo")
+    soldados = Soldado.objects.filter(estado="nuevo").order_by('id')
     context = {
         'soldados' : soldados,
     }
     return render(request, 'frentebatalla.html', context)
 
 def frenteBatalla(request):
-    soldados = Soldado.objects.filter(estado="frente")
+    soldados = Soldado.objects.filter(estado="frente").order_by('id')
     context = {
         'soldados' : soldados,
     }
     return render(request, 'frentebatalla.html', context)
 
 def heridos(request):
-    soldados = Soldado.objects.filter(estado="herido")
+    soldados = Soldado.objects.filter(estado="herido").order_by('id')
     context = {
         'soldados' : soldados,
     }
     return render(request, 'heridos.html', context)
 
 def caidos(request):
-    soldados = Soldado.objects.filter(estado="caido")
+    soldados = Soldado.objects.filter(estado="caido").order_by('id')
     context = {
         'soldados' : soldados,
     }
     return render(request, 'heridos.html', context)
-""" 
-
-
-def eliminarPersona(request, id):
-    persona = get_object_or_404(Persona, pk=id)  # Si no encuentra un pk, te dirije a la pag 404 error
-    #Eliminar una persona en formulario
-    if persona:
-        persona.delete()
-    return redirect('inicio')
-
-def detalleDomicilio(request, id):
-    domicilio = get_object_or_404(Domicilio, pk=id)  # Si no encuentra un pk te dirije a la pag 404 error
-    return render(request, 'domicilios/detalle.html', {'domicilio': domicilio})
-
-def nuevoDomicilio(request):
-    #Agregar una nueva persona en formulario
-    if request.method == 'POST':
-        formaDomicilio = DomicilioForm(request.POST) #Llenar nuevo objeto
-        if formaDomicilio.is_valid():
-            formaDomicilio.save() #Guarda la informacion insertada en la base de datos
-            return redirect('domicilios')  # Se vuelve a cargar la pagina de inicio por completo
-    else:
-        formaDomicilio = DomicilioForm()
-
-    return render(request, 'domicilios/nuevo.html', {'formaDomicilio': formaDomicilio})
-
-def editarDomicilio(request, id):
-    domicilio = get_object_or_404(Domicilio, pk=id)  # Si no encuentra un pk, te dirije a la pag 404 error
-    #Editar un domicilio en formulario
-    if request.method == 'POST':
-        formaDomicilio = DomicilioForm(request.POST, instance=domicilio) #Llenar nuevo objeto
-        if formaDomicilio.is_valid():
-            formaDomicilio.save() #Guarda la informacion insertada en la base de datos
-            return redirect('domicilios')  # Se vuelve a cargar la pagina de inicio por completo
-    else:
-        formaDomicilio = DomicilioForm(instance=domicilio)
-
-    return render(request, 'domicilios/editar.html', {'formaDomicilio': formaDomicilio})
-
-def eliminarDomicilio(request, id):
-    domicilio = get_object_or_404(Domicilio, pk=id)  # Si no encuentra un pk, te dirije a la pag 404 error
-    #Eliminar una persona en formulario
-    if domicilio:
-        domicilio.delete()
-    return redirect('domicilios') """
